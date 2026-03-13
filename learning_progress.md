@@ -27,7 +27,7 @@ All lesson files are self-contained, runnable `.py` files with:
 |------|-------|--------|
 | `01_lists.py` | Lists: creating, indexing, slicing, mutability, methods | Completed |
 | `02_loops_and_lists.py` | Iterating, enumerate, list patterns, nested loops | Completed |
-| `03_functions.py` | Defining functions, parameters, return values, scope | Not started |
+| `03_functions.py` | Defining functions, parameters, return values, scope | Completed |
 | `04_strings.py` | String methods, formatting, immutability | Not started |
 | `05_tuples.py` | Packing/unpacking, immutability, tuples vs lists | Not started |
 | `06_dictionaries.py` | Key-value pairs, lookups, iteration, nesting | Not started |

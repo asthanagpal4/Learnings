@@ -240,7 +240,12 @@ print("\nAll tests passed!")
 #    double(0) should give 0
 #    Hint: def double(x): ...
 
-# Write your code here:
+def double(x):
+    return x*2
+
+print(double(5))
+print(double(0))
+
 
 
 # 2. Write a function called "is_positive" that takes a number and returns
@@ -251,7 +256,12 @@ print("\nAll tests passed!")
 #    is_positive(0) should give False
 #    Hint: return number > 0
 
-# Write your code here:
+def is_positive(x):
+    return x > 0
+
+print(is_positive(5))
+print(is_positive(-3))
+print(is_positive(0))
 
 
 # 3. Write a function called "find_longest" that takes a list of strings
@@ -259,7 +269,15 @@ print("\nAll tests passed!")
 #    Expected: find_longest(["cat", "elephant", "dog"]) should give "elephant"
 #    Hint: loop through the list, keep track of the longest one so far
 
-# Write your code here:
+def find_longest(strings):
+    longest = strings[0]
+    for s in strings:
+        if len(s) > len(longest):
+            longest = s 
+    return longest
+
+animals =  ["cat", "elephant", "dog"]
+print(find_longest(animals))
 
 
 # 4. Write a function called "count_word" that takes two arguments:
@@ -268,7 +286,17 @@ print("\nAll tests passed!")
 #    Expected: count_word(["hi", "bye", "hi", "hello"], "hi") should give 2
 #    Hint: use a counter variable, loop, and if
 
-# Write your code here:
+def count_word(words, target):
+    repeat = 0
+    for word in words:
+        if word == target:
+            repeat = repeat + 1
+    return repeat
+
+words = ["hi", "bye", "hi", "hello"]
+print(count_word(words, "hi"))
+
+
 
 
 # 5. (Challenge) Write a function called "apply_to_all" that takes a list
@@ -278,4 +306,11 @@ print("\nAll tests passed!")
 #    Hint: yes, you can pass a function as an argument to another function!
 #    This is a key idea in Python and ML.
 
-# Write your code here:
+def apply_to_all(numbers, func):
+    result = []
+    for num in numbers:
+        result.append(func(num))
+    return result
+
+numbers = [1, 2, 3]
+print(apply_to_all(numbers, double))
