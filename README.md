@@ -13,7 +13,7 @@ Hey Guys! My goal is to learn ML ASAP, and code my way through life. Learning fr
 ## Progress
 
 ```
-[██░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 3/46 files (7%)
+[███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 4/46 files (9%)
 ```
 
 ## Skills
@@ -24,3 +24,4 @@ Hey Guys! My goal is to learn ML ASAP, and code my way through life. Learning fr
 - Loops — for, while, enumerate, nested
 - Functions — parameters, return values, defaults, scope
 - Passing functions as arguments
+- Strings — methods, formatting, slicing, immutability

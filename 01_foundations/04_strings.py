@@ -267,7 +267,9 @@ print("\nAll tests passed!")
 
 text = "machine learning is fun"
 
-# Write your code here:
+print(text.upper())
+print(text.lower())
+print(text.capitalize())
 
 
 # 2. Given the sentence below, split it into words, then count
@@ -277,7 +279,9 @@ text = "machine learning is fun"
 
 sentence = "I want to learn machine learning"
 
-# Write your code here:
+words = sentence.split()
+print(len(words))
+
 
 
 # 3. Given the list of words below, join them with " -> " between each word.
@@ -286,7 +290,8 @@ sentence = "I want to learn machine learning"
 
 steps = ["start", "learn", "practice", "master"]
 
-# Write your code here:
+new_steps = " -> ".join(steps)
+print(new_steps)
 
 
 # 4. Write code that takes the messy string below, strips whitespace,
@@ -295,7 +300,10 @@ steps = ["start", "learn", "practice", "master"]
 
 messy_input = "   I Hate Python   "
 
-# Write your code here:
+proper_input = messy_input.strip()
+lower_input = proper_input.lower()
+final = lower_input.replace("hate", "love")
+print(final)
 
 
 # 5. (Challenge) Given a sentence, count how many vowels (a, e, i, o, u)
@@ -305,4 +313,9 @@ messy_input = "   I Hate Python   "
 
 test_sentence = "Hello World"
 
-# Write your code here:
+updated_sentence = test_sentence.lower()
+count = 0
+for character in updated_sentence:
+    if character == "a" or character == "e" or character == "i" or character == "o" or character == "u":
+        count += 1
+print(count)
