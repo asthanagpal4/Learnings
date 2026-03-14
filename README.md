@@ -13,7 +13,7 @@ Hey Guys! My goal is to learn ML ASAP, and code my way through life. Learning fr
 ## Progress
 
 ```
-[███░░░░░░░░░░░░░░░░░░░░░░░░░░░] 4/46 files (9%)
+[████░░░░░░░░░░░░░░░░░░░░░░░░░░] 5/46 files (11%)
 ```
 
 ## Skills
@@ -25,3 +25,4 @@ Hey Guys! My goal is to learn ML ASAP, and code my way through life. Learning fr
 - Functions — parameters, return values, defaults, scope
 - Passing functions as arguments
 - Strings — methods, formatting, slicing, immutability
+- Tuples — packing/unpacking, immutability, tuple methods

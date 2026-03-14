@@ -224,7 +224,12 @@ print("\nAll tests passed!")
 #    Green: 128
 #    Blue: 0
 
-# Write your code here:
+rgb = (255, 128, 0)
+red, green, blue = rgb
+print(f"Red: {red}")
+print(f"Green: {green}")
+print(f"Blue: {blue}")
+
 
 
 # 2. Given the list of (name, score) tuples below, loop through them
@@ -236,7 +241,9 @@ print("\nAll tests passed!")
 
 results = [("Alice", 72), ("Bob", 88), ("Charlie", 65), ("Diana", 91)]
 
-# Write your code here:
+for name, score in results:
+    if score > 80:
+        print(name)
 
 
 # 3. Write a function called "divide" that takes two numbers and returns
@@ -244,7 +251,12 @@ results = [("Alice", 72), ("Bob", 88), ("Charlie", 65), ("Diana", 91)]
 #    Test: divide(17, 5) should return (3, 2) because 17/5 = 3 remainder 2
 #    Hint: use // for integer division and % for remainder
 
-# Write your code here:
+def divide(num1, num2):
+    return num1 // num2, num1 % num2
+
+quotient, remainder = divide(17, 5)
+print(f"17/5 = {quotient} remainder {remainder}")
+
 
 
 # 4. Use the swap trick to swap the values of x and y without using
@@ -257,7 +269,8 @@ x = 100
 y = 200
 print(f"Before: x={x}, y={y}")
 
-# Write your swap code here:
+x, y = y, x
+print(f"After: x={x}, y={y}")
 
 
 # 5. (Challenge) Given a list of (city, temperature) tuples,
@@ -267,4 +280,39 @@ print(f"Before: x={x}, y={y}")
 
 weather = [("Delhi", 35), ("Mumbai", 32), ("Chennai", 38), ("Kolkata", 30)]
 
-# Write your code here:
+def highest_temperature(weather):
+    max_temp = 0
+    max_temp_city = ""
+    for city, temperature in weather:
+        if temperature > max_temp:
+            max_temp = temperature
+            max_temp_city = city
+    return max_temp_city, max_temp
+
+            
+
+city, temperature = highest_temperature(weather)
+print(f"{city} with {temperature} degrees")
+
+rating_list = [("Delhi", 4.5), ("Lucknow", 3.76), ("Mumbai", 7.8), ("Gwalior", 9.9), ("Raipur", 0.1)]
+
+def mean(all_ratings: list[tuple[str, float]]) -> list[str]:
+    mean_rating = 0
+    total = 0
+    highest_rating_city = []
+    for city, rating in all_ratings:
+        total += rating
+    mean_rating = total / len(all_ratings)
+    print(mean_rating)
+    for city, rating in all_ratings:
+        if rating > mean_rating:
+            highest_rating_city.append(city)
+    return highest_rating_city
+
+city = mean(rating_list)
+print(city)
+        
+
+
+
+

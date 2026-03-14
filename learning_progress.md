@@ -29,7 +29,7 @@ All lesson files are self-contained, runnable `.py` files with:
 | `02_loops_and_lists.py` | Iterating, enumerate, list patterns, nested loops | Completed |
 | `03_functions.py` | Defining functions, parameters, return values, scope | Completed |
 | `04_strings.py` | String methods, formatting, immutability | Completed |
-| `05_tuples.py` | Packing/unpacking, immutability, tuples vs lists | Not started |
+| `05_tuples.py` | Packing/unpacking, immutability, tuples vs lists | Completed |
 | `06_dictionaries.py` | Key-value pairs, lookups, iteration, nesting | Not started |
 | `07_sets.py` | Uniqueness, set operations, when to use sets | Not started |
 | `project_word_counter.py` | **Mini-project**: Word frequency counter (NLP taste) | Not started |
