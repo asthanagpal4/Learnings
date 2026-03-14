@@ -1,3 +1,5 @@
+from collections.abc import Callable
+
 # HOW TO RUN:
 #   uv run python 01_foundations/03_functions.py
 # If all tests pass, you'll see "All tests passed!" at the end.
@@ -18,7 +20,7 @@
 # Use the "def" keyword, give it a name, add parentheses, and a colon.
 # The code inside the function must be indented.
 
-def say_hello():
+def say_hello() -> None:
     print("Hello, Astha!")
 
 # To use (or "call") the function, write its name with parentheses:
@@ -37,14 +39,14 @@ say_hello()
 # You can pass information into a function using parameters.
 # Parameters go inside the parentheses.
 
-def greet(name):
+def greet(name: str) -> None:
     print(f"Hello, {name}!")
 
 greet("Astha")     # Output: Hello, Astha!
 greet("Python")    # Output: Hello, Python!
 
 # Multiple parameters -- separate them with commas
-def add(a, b):
+def add(a: int, b: int) -> None:
     print(f"{a} + {b} = {a + b}")
 
 add(3, 5)      # Output: 3 + 5 = 8
@@ -55,7 +57,7 @@ add(10, 20)    # Output: 10 + 20 = 30
 # print() shows something on screen, but return sends a value back
 # so you can store it and use it later. This is a crucial difference!
 
-def multiply(a, b):
+def multiply(a: int, b: int) -> int:
     return a * b
 
 result = multiply(4, 5)
@@ -68,7 +70,7 @@ print("Total:", total)
 # Output: Total: 37    (because 21 + 16 = 37)
 
 # A function without return gives back "None"
-def just_prints(x):
+def just_prints(x: str) -> None:
     print(x)
 
 result = just_prints("hi")   # Output: hi
@@ -80,7 +82,7 @@ print("Return value:", result)
 # You can give parameters a default value.
 # If the caller doesn't provide that argument, the default is used.
 
-def power(base, exponent=2):
+def power(base: int, exponent: int =2) -> None:
     return base ** exponent
 
 print(power(5))       # Output: 25   (5 squared, used default exponent=2)
@@ -91,7 +93,7 @@ print(power(2, 10))   # Output: 1024 (2 to the power of 10)
 # === FUNCTIONS THAT WORK WITH LISTS ===
 # Functions are great for processing lists
 
-def calculate_average(numbers):
+def calculate_average(numbers: list[int]) -> float :
     total = 0
     for num in numbers:
         total += num
@@ -103,7 +105,7 @@ print(f"Average score: {avg}")
 # Output: Average score: 87.6
 
 # Another example: filter a list
-def get_passing_scores(scores, passing_mark=60):
+def get_passing_scores(scores: list[int], passing_mark: int =60) -> list[int]:
     passing = []
     for score in scores:
         if score >= passing_mark:
@@ -123,7 +125,7 @@ print("Passed (75+):", passed_high)
 # === RETURNING MULTIPLE VALUES ===
 # Python lets you return more than one value (using a tuple, covered later)
 
-def get_stats(numbers):
+def get_stats(numbers: list[int]) -> tuple[int, int, float]:
     smallest = min(numbers)
     largest = max(numbers)
     average = sum(numbers) / len(numbers)
@@ -140,7 +142,7 @@ print(f"Low: {low}, High: {high}, Average: {avg}")
 
 message = "I am outside"   # This is a "global" variable
 
-def show_scope():
+def show_scope() -> None:
     local_var = "I am inside"   # This is a "local" variable
     print(local_var)
     print(message)   # Can see the global variable
@@ -160,10 +162,10 @@ show_scope()
 # === FUNCTIONS CALLING OTHER FUNCTIONS ===
 # Functions can call other functions -- this is how you build bigger programs
 
-def is_even(number):
+def is_even(number: int) -> bool:
     return number % 2 == 0
 
-def count_evens(numbers):
+def count_evens(numbers: list[int]) -> int:
     count = 0
     for num in numbers:
         if is_even(num):   # Calling our other function!
@@ -178,7 +180,7 @@ print(f"Even numbers in list: {count_evens(my_list)}")
 # === A PRACTICAL EXAMPLE ===
 # Let's write a function that could be useful for data processing
 
-def clean_text(text):
+def clean_text(text: str) -> str:
     """Remove extra spaces and convert to lowercase."""
     cleaned = text.strip()       # Remove spaces from start and end
     cleaned = cleaned.lower()    # Convert to lowercase
@@ -240,7 +242,7 @@ print("\nAll tests passed!")
 #    double(0) should give 0
 #    Hint: def double(x): ...
 
-def double(x):
+def double(x: int) -> int:
     return x*2
 
 print(double(5))
@@ -256,7 +258,7 @@ print(double(0))
 #    is_positive(0) should give False
 #    Hint: return number > 0
 
-def is_positive(x):
+def is_positive(x: int) -> bool:
     return x > 0
 
 print(is_positive(5))
@@ -269,7 +271,7 @@ print(is_positive(0))
 #    Expected: find_longest(["cat", "elephant", "dog"]) should give "elephant"
 #    Hint: loop through the list, keep track of the longest one so far
 
-def find_longest(strings):
+def find_longest(strings: list[str]) -> str:
     longest = strings[0]
     for s in strings:
         if len(s) > len(longest):
@@ -286,7 +288,7 @@ print(find_longest(animals))
 #    Expected: count_word(["hi", "bye", "hi", "hello"], "hi") should give 2
 #    Hint: use a counter variable, loop, and if
 
-def count_word(words, target):
+def count_word(words: list[str], target: str) -> int:
     repeat = 0
     for word in words:
         if word == target:
@@ -306,7 +308,7 @@ print(count_word(words, "hi"))
 #    Hint: yes, you can pass a function as an argument to another function!
 #    This is a key idea in Python and ML.
 
-def apply_to_all(numbers, func):
+def apply_to_all(numbers: list[int], func:Callable[[int], int]) -> list[int]:
     result = []
     for num in numbers:
         result.append(func(num))
