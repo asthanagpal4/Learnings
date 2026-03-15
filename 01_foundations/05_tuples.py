@@ -71,7 +71,7 @@ print(f"{name} is {age} years old, lives in {city}")
 # Output: Astha is 25 years old, lives in Delhi
 
 # This is why functions can return multiple values!
-def get_min_max(numbers):
+def get_min_max(numbers: list[int]) -> tuple[int, int]:
     return min(numbers), max(numbers)   # Returns a tuple
 
 data = [15, 8, 42, 3, 27]
@@ -251,7 +251,7 @@ for name, score in results:
 #    Test: divide(17, 5) should return (3, 2) because 17/5 = 3 remainder 2
 #    Hint: use // for integer division and % for remainder
 
-def divide(num1, num2):
+def divide(num1: int, num2: int) -> tuple[int, int]:
     return num1 // num2, num1 % num2
 
 quotient, remainder = divide(17, 5)
@@ -280,7 +280,7 @@ print(f"After: x={x}, y={y}")
 
 weather = [("Delhi", 35), ("Mumbai", 32), ("Chennai", 38), ("Kolkata", 30)]
 
-def highest_temperature(weather):
+def highest_temperature(weather: list[tuple[str, int]]) -> tuple[str, int]:
     max_temp = 0
     max_temp_city = ""
     for city, temperature in weather:
