@@ -263,8 +263,10 @@ print("\nAll tests passed!")
 #    Year: 2010
 #    Rating: 8.8
 
-# Write your code here:
-
+movie = {"title": "Inception", "year": 2010, "rating": 8.8}
+print(f"Title: {movie['title']}")
+print(f"Year: {movie['year']}")
+print(f"Rating: {movie['rating']}")
 
 # 2. Given the dictionary below, add a new key "country" with value "India",
 #    change the "age" to 26, and remove the "hobby" key.
@@ -272,7 +274,11 @@ print("\nAll tests passed!")
 
 profile = {"name": "Astha", "age": 25, "city": "Delhi", "hobby": "reading"}
 
-# Write your code here:
+profile["country"] = "India"
+profile["age"] = 26
+del profile["hobby"]
+print(profile)
+
 
 
 # 3. Given the scores dictionary below, loop through it and print
@@ -284,7 +290,10 @@ profile = {"name": "Astha", "age": 25, "city": "Delhi", "hobby": "reading"}
 
 scores = {"math": 95, "science": 88, "english": 72, "history": 84}
 
-# Write your code here:
+for subject, score in scores.items():
+    if score > 85:
+        print(f" {subject}: {score}")
+
 
 
 # 4. Count how many times each letter appears in the word below.
@@ -294,7 +303,17 @@ scores = {"math": 95, "science": 88, "english": 72, "history": 84}
 
 word = "mississippi"
 
-# Write your code here:
+
+letter_count = {}
+
+for letter in word:
+    if letter in letter_count:
+        letter_count[letter] += 1
+    else:
+        letter_count[letter] = 1
+
+print(f"{letter_count}")
+
 
 
 # 5. (Challenge) Given a list of (item, price) tuples, create a dictionary
@@ -304,4 +323,14 @@ word = "mississippi"
 
 products = [("phone", 15000), ("laptop", 80000), ("tablet", 30000), ("watch", 5000)]
 
-# Write your code here:
+highest_cost = 0
+expensive_item = ""
+
+for item, price in products:
+    if price > highest_cost:
+        highest_cost = price
+        expensive_item = item
+
+
+print(f"{expensive_item} costs {highest_cost}")
+
