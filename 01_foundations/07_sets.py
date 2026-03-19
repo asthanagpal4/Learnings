@@ -225,12 +225,15 @@ print("\nAll tests passed!")
 # === EXERCISES ===
 
 # 1. Given the list below, find how many unique numbers there are.
-#    Expected output: 6 unique numbers
+#    Expected output: 5 unique numbers
 #    Hint: convert to a set, then use len()
 
 numbers = [4, 7, 2, 4, 9, 7, 1, 4, 2, 9]
 
-# Write your code here:
+
+numbers_set = set(numbers)
+unique_numbers = len(numbers_set)
+print(f"{unique_numbers} unique numbers")
 
 
 # 2. Given two lists of friends below, find:
@@ -242,16 +245,32 @@ numbers = [4, 7, 2, 4, 9, 7, 1, 4, 2, 9]
 my_friends = ["Alice", "Bob", "Charlie", "Diana"]
 your_friends = ["Bob", "Diana", "Eve", "Frank"]
 
-# Write your code here:
+
+my_friends_set = set(my_friends)
+your_friends_set = set(your_friends)
+combined_friends = my_friends_set | your_friends_set
+print(combined_friends)
+common_friends = my_friends_set & your_friends_set
+print(common_friends)
+only_my_friends = my_friends_set - your_friends_set
+print(only_my_friends)
+
 
 
 # 3. Given a sentence, find all the unique words in it.
-#    Expected output for the sentence below: 7 unique words
+#    Expected output for the sentence below: 5 unique words
 #    Hint: split the sentence, convert to set
 
 sentence = "the cat and the dog and the bird"
 
-# Write your code here:
+words = sentence.split()
+sentence_set = set(words)
+unique_words = len(sentence_set)
+print(f"{unique_words} unique words")
+
+
+
+
 
 
 # 4. Write code to check if all items in list_a appear in list_b.
@@ -261,7 +280,9 @@ sentence = "the cat and the dog and the bird"
 list_a = [1, 2, 3]
 list_b = [1, 2, 3, 4, 5, 6]
 
-# Write your code here:
+set_a = set(list_a)
+set_b = set(list_b)
+print(set_a.issubset(set_b))
 
 
 # 5. (Challenge) Given a list of email addresses, find the duplicates.
@@ -271,4 +292,14 @@ list_b = [1, 2, 3, 4, 5, 6]
 
 emails = ["a@mail.com", "b@mail.com", "c@mail.com", "b@mail.com", "d@mail.com"]
 
-# Write your code here:
+
+seen = set()
+duplicate = set()
+for email in emails:
+    if email in seen:
+        duplicate.add(email)
+    else:
+        seen.add(email)
+
+print(duplicate)
+
