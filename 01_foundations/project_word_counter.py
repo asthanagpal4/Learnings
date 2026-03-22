@@ -21,12 +21,11 @@
 # (You can change this to any text you want later!)
 
 sample_text = """
-Machine learning is a branch of artificial intelligence.
-Machine learning uses data to learn patterns.
-The more data you have, the better the learning.
-Data is the fuel for machine learning.
-Without good data, machine learning cannot learn well.
-Learning from data is what makes machine learning powerful.
+The U.S. embassy in Baghdad came under attack early Tuesday, March 17, 
+as drones targeted the heavily fortified compound in Iraq’s capital. 
+Eyewitness footage showed air defence systems firing into the night sky, 
+intercepting incoming drones during what Iraqi security sources described 
+as one of the most intense assaults in recent weeks.
 """
 
 
@@ -34,7 +33,7 @@ Learning from data is what makes machine learning powerful.
 # STEP 2: Clean the text
 # ============================================================
 
-def clean_text(text):
+def clean_text(text: str) -> str:
     """
     Takes raw text and returns a cleaned-up version.
     - Convert to lowercase (so "Machine" and "machine" count as same word)
@@ -47,9 +46,8 @@ def clean_text(text):
     cleaned = ""
     for char in text:
         if char.isalpha() or char.isspace():
-            # TODO 1: Add this character to the 'cleaned' string
-            # Hint: cleaned = cleaned + char
             cleaned = cleaned + char
+            # Hint: cleaned = cleaned + char
 
     return cleaned
 
@@ -58,7 +56,7 @@ def clean_text(text):
 # STEP 3: Split text into a list of words
 # ============================================================
 
-def get_words(text):
+def get_words(text: str) -> list[str]:
     """
     Takes cleaned text and returns a list of words.
     """
@@ -72,7 +70,7 @@ def get_words(text):
 # STEP 4: Count word frequencies
 # ============================================================
 
-def count_words(word_list):
+def count_words(word_list: list[str]) -> dict[str, int]:
     """
     Takes a list of words and returns a dictionary
     where keys are words and values are how many times they appear.
@@ -87,15 +85,15 @@ def count_words(word_list):
         # If the word is NOT in counts, set its value to 1
         #
         # Hint: you can use either the if/else pattern:
-        #   if word in counts:
-        #       counts[word] += 1
-        #   else:
-        #       counts[word] = 1
+        if word in counts:
+            counts[word] += 1
+        else:
+            counts[word] = 1
         #
         # Or the shorter .get() pattern:
         #   counts[word] = counts.get(word, 0) + 1
 
-        counts[word] = counts.get(word, 0) + 1
+        # counts[word] = counts.get(word, 0) + 1
 
     return counts
 
@@ -104,7 +102,7 @@ def count_words(word_list):
 # STEP 5: Sort words by frequency
 # ============================================================
 
-def sort_by_frequency(word_counts):
+def sort_by_frequency(word_counts: dict[str, int]) -> list[tuple[str, int]]:
     """
     Takes a word counts dictionary and returns a list of (word, count)
     tuples, sorted from most frequent to least frequent.
@@ -120,7 +118,7 @@ def sort_by_frequency(word_counts):
 # STEP 6: Display the results
 # ============================================================
 
-def display_results(sorted_words, top_n=10):
+def display_results(sorted_words: list[str], top_n: int = 10) -> None:
     """
     Prints the top N most frequent words in a nice format.
     """
@@ -151,7 +149,7 @@ def display_results(sorted_words, top_n=10):
 # STEP 7: Extra stats
 # ============================================================
 
-def show_stats(word_list, word_counts):
+def show_stats(word_list: list[str], word_counts: dict[str, int]) -> None:
     """
     Shows some extra statistics about the text.
     """
@@ -249,9 +247,9 @@ assert sorted_result[-1] == ("banana", 1), "least frequent word should come last
 _cleaned = clean_text(sample_text)
 _words = get_words(_cleaned)
 _counts = count_words(_words)
-assert _counts["learning"] == 7, "learning should appear 7 times in sample_text"
-assert _counts["machine"] == 5, "machine should appear 5 times in sample_text"
-assert _counts["data"] == 5, "data should appear 5 times in sample_text"
+# assert _counts["learning"] == 7, "learning should appear 7 times in sample_text"
+# assert _counts["machine"] == 5, "machine should appear 5 times in sample_text"
+# assert _counts["data"] == 5, "data should appear 5 times in sample_text"
 assert len(_words) > 0, "word list should not be empty"
 assert len(_counts) > 0, "word counts should not be empty"
 
@@ -265,6 +263,20 @@ print("\nAll tests passed!")
 #   words like "the", "is", "a", "and", "to", "for", "of", "in".
 #   Create a set of stop words and skip them during counting.
 #   Hint: in count_words(), add "if word not in stop_words:"
+
+
+def count_words_no_stops(word_list: list[str]) -> dict[str, int]:
+    counts = {}
+    stop_words = ["the", "is", "a", "and", "to", "for", "of", "in"]
+
+    for word in word_list:
+        if word not in stop_words:
+            if word in counts:
+                counts[word] += 1
+            else:
+                counts[word] = 1
+    return counts
+
 #
 # Challenge B: Try running this program on different text!
 #   Change sample_text to a paragraph from a news article or a book.
@@ -272,6 +284,17 @@ print("\nAll tests passed!")
 # Challenge C: Add a function that finds words that appear exactly once.
 #   These are called "hapax legomena" -- a real NLP concept!
 #   Hint: loop through word_counts and collect words where count == 1
+
+def find_hapax(word_counts: dict[str, int]) -> list[str]:
+    hapax_legomena = []
+    for word, count in word_counts.items():
+        if count == 1:
+            hapax_legomena.append(word)
+    return hapax_legomena
 #
 # Challenge D: Make the program read text from a file instead of a string.
 #   Hint: with open("filename.txt", "r") as f: text = f.read()
+
+with open("01_foundations/file1.txt", "r") as f: 
+    text = f.read()
+print(text)
