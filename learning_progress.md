@@ -30,14 +30,14 @@ All lesson files are self-contained, runnable `.py` files with:
 | `03_functions.py` | Defining functions, parameters, return values, scope | Completed |
 | `04_strings.py` | String methods, formatting, immutability | Completed |
 | `05_tuples.py` | Packing/unpacking, immutability, tuples vs lists | Completed |
-| `06_dictionaries.py` | Key-value pairs, lookups, iteration, nesting | Not started |
-| `07_sets.py` | Uniqueness, set operations, when to use sets | Not started |
-| `project_word_counter.py` | **Mini-project**: Word frequency counter (NLP taste) | Not started |
+| `06_dictionaries.py` | Key-value pairs, lookups, iteration, nesting | Completed |
+| `07_sets.py` | Uniqueness, set operations, when to use sets | Completed |
+| `project_word_counter.py` | **Mini-project**: Word frequency counter (NLP taste) | Completed |
 
 ### Section 2: Programming Concepts (`02_programming/`) — 7 files
 | File | Topic | Status |
 |------|-------|--------|
-| `01_file_handling.py` | Reading/writing files (dataset loading prep) | Not started |
+| `01_file_handling.py` | Reading/writing files (dataset loading prep) | Completed |
 | `02_error_handling.py` | try/except, raising errors, defensive programming | Not started |
 | `03_list_comprehensions.py` | List/dict/set comprehensions | Not started |
 | `04_classes_basics.py` | Classes, `__init__`, methods, self, attributes | Not started |

@@ -240,7 +240,16 @@ print("\nAll tests passed!")
 #    Hint: use enumerate() with start=1 in your loop
 
 # YOUR CODE HERE:
+with open("my_favourite.txt", "w") as f:
+    f.write("pizza\n")
+    f.write("blue\n")
+    f.write("cat\n")
 
+with open("my_favourite.txt", "r") as f:
+    lines = f.readlines()
+
+for number, line in enumerate(lines, start=1):
+    print(f"{number}. {line.strip()}")
 
 # 2. Create a file "numbers.txt" with the numbers 1 through 10 (one per line).
 #    Then read the file, convert each line to an integer, and print the sum.
@@ -248,7 +257,26 @@ print("\nAll tests passed!")
 #    Hint: int(line.strip()) converts a line to a number
 
 # YOUR CODE HERE:
+with open("numbers.txt", "w") as f:
+    f.write("1\n")
+    f.write("2\n")
+    f.write("3\n")
+    f.write("4\n")
+    f.write("5\n")
+    f.write("6\n")
+    f.write("7\n")
+    f.write("8\n")
+    f.write("9\n")
+    f.write("10\n")
 
+with open("numbers.txt", "r") as f:
+    lines = f.readlines()
+
+total = 0
+for line in lines:
+    total += int(line.strip())
+
+print(f"sum = {total}")
 
 # 3. Create a file "shopping.txt" with some items. Then write a program that:
 #    - Reads the file
@@ -258,3 +286,22 @@ print("\nAll tests passed!")
 #    Hint: use "a" mode to append
 
 # YOUR CODE HERE:
+
+with open("shopping.txt", "w") as f:
+    f.write("bag\n")
+    f.write("shoes\n")
+    f.write("dress\n")
+
+with open("shopping.txt", "r") as f:
+    content = f.read()
+
+new_item = input("enter a new item: ")
+with open("shopping.txt", "a") as f:
+    f.write(f"{new_item}\n")
+
+with open("shopping.txt", "r") as f:
+    content = f.read()
+
+print(content)
+
+
