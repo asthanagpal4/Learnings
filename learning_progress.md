@@ -38,7 +38,7 @@ All lesson files are self-contained, runnable `.py` files with:
 | File | Topic | Status |
 |------|-------|--------|
 | `01_file_handling.py` | Reading/writing files (dataset loading prep) | Completed |
-| `02_error_handling.py` | try/except, raising errors, defensive programming | Not started |
+| `02_error_handling.py` | try/except, raising errors, defensive programming | Completed |
 | `03_list_comprehensions.py` | List/dict/set comprehensions | Not started |
 | `04_classes_basics.py` | Classes, `__init__`, methods, self, attributes | Not started |
 | `05_classes_advanced.py` | Inheritance, `__str__`, `__len__`, special methods | Not started |

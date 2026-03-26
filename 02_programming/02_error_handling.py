@@ -366,6 +366,21 @@ print("\nAll tests passed!")
 # YOUR CODE HERE:
 
 
+def safe_int(text: str) -> int | None:
+    try:
+        number = int(text)
+        return number
+    except ValueError:
+        return None
+
+
+print(safe_int("42"))
+
+print(safe_int("hello"))
+
+print(safe_int("3.5"))
+
+
 # 2. Write a function safe_get(dictionary, key) that:
 #    - Returns the value for the key if it exists
 #    - Returns "Key not found" if the key doesn't exist
@@ -375,6 +390,15 @@ print("\nAll tests passed!")
 #    Hint: catch KeyError
 
 # YOUR CODE HERE:
+def safe_get(dictionary: dict, key: str) -> int | str:
+    try:
+        value = dictionary[key]
+        return value
+    except KeyError:
+        return "Key not found"
+
+print(safe_get({"a": 1, "b": 2}, "a"))
+print(safe_get({"a": 1}, "c"))
 
 
 # 3. Write a function divide_list(numbers, divisor) that:
@@ -387,3 +411,17 @@ print("\nAll tests passed!")
 #    Hint: check for zero divisor first, then use try/except inside the loop
 
 # YOUR CODE HERE:
+def divide_list(numbers: list, divisor: int | float) -> list[float]:
+    if divisor == 0:
+        return []
+    result = []
+    for number in numbers:
+        try:
+            result.append(number/divisor)
+        except TypeError:
+            continue 
+    return result
+print(divide_list([10, 20, 30], 5))
+print(divide_list([10, 20], 0))
+
+
